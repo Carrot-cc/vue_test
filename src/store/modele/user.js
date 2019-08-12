@@ -7,7 +7,10 @@ const getters = {
   }
 }
 const mutations = {
-  //
+  // 修改模块中的 userName
+  SET_USER_NAME (state, params) {
+    state.userName = params
+  }
 }
 const actions = {
   //

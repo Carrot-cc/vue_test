@@ -206,7 +206,36 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 #### Vuex-基础-mutation&action/module
 
-
+> - <u>当我们在组件中需要修改vuex中store中的数据时, 不能在组件中直接修改,</u> 
+>   - ==commit 一个 mutation 来进行修改== 
+>   - dispatch 一个 action , commit,  mutation 来进行修改
+>
+> `主要是在: store.vue | mutations.js | actions.js | state.js | api/app.js` 
 
 #### Vuex-进阶
+
+> - 插件
+> - 严格模式
+> - vuex + 双向绑定
+>
+> `主要是在: store/plugin | store/index.js | store.vue | mutations.js | state.js`
+
+### ajax请求
+
+#### 解决跨域问题
+
+> - 后端设置`res.header(Access-Control-Allow-Origin, *)` 
+> - 前端代理proxy
+>
+> `主要是在: Home.vue | vue.config.js` 
+
+#### 封装axios
+
+> `主要是在: axios.js | user.js | api/index.js | config/index.js | Home.vue` 
+
+#### 真实请求
+
+
+
+
 
