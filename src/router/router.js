@@ -1,12 +1,21 @@
 import Home from '@/views/Home.vue'
+import Layout from '@/views/layout.vue'
 
 export default [
   {
     path: '/',
     name: 'home',
     alias: '/home_page',
-    component: Home,
-    props: route => ({
+    component: Layout,
+    // 之前的home页： 
+    children: [
+      {
+        path: 'home',
+        component: Home,
+      }
+    ],
+
+    /* props: route => ({
       food: route.query.food
     }),
     // 路由独享守卫
@@ -15,7 +24,9 @@ export default [
       // else alert('这不是从about页来的')
       // 使用 beforeEnter, 一定要调用next(), 不然不会跳转
       next()
-    }
+    } */
+
+    // iview响应式布局：显示在home页
   },
   {
     path: '/login',
@@ -45,6 +56,30 @@ export default [
     component: () => import('@/views/argu.vue'),
     props: true
   },
+  {
+    // vue 封装第三方js库： countUp.js
+    path: '/count-to',
+    name: 'count_to',
+    component: () => import('@/views/count-to.vue')
+  },
+  {
+    // vue 封装第三方js库： countUp.js
+    path: '/split-pane',
+    name: 'split_pane',
+    component: () => import('@/views/split-pane.vue')
+  },
+  {
+    // vue 渲染函数： render
+    path: '/render_page',
+    name: 'render_page',
+    component: () => import('@/views/render-page.vue')
+  },
+  /* {
+    // vue iview响应式布局：显示在home页
+    path: '/layout',
+    name: 'layout',
+    component: () => import('@/views/layout.vue')
+  }, */
   {
     // 二. 嵌套路由
     path: '/parent',

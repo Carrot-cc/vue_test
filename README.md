@@ -233,7 +233,67 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 > `主要是在: axios.js | user.js | api/index.js | config/index.js | Home.vue` 
 
-#### 真实请求
+### Mock模拟ajax
+
+#### 响应模拟
+
+#### Mock语法
+
+### vue 中的第三方js库使用
+
+#### 组件封装基础
+
+> - 数字动画: `CountUp.js` 
+
+#### 组件中使用id值
+
+> - `this._uid` 组件唯一id
+
+#### 组件中获取DOM
+
+> - `ref   this.$refs` 
+
+` 主要是在:views/count-to.vue | components/count-to.vue | router.js ` 
+
+### vue操作DOM
+
+> `主要是在: views/split-pane.vue | components/split-pane.vue | router.js` 
+
+#### 两列布局
+
+#### 两个div改变宽度
+
+#### 鼠标拖动效果
+
+#### v-model & .sysc修饰符
+
+### 递归组件
+
+> - 待补充
+
+#### 登录登出
+
+> - 待补充
+
+### 响应式布局
+
+#### vue-cli3.0使用iview
+
+#### 布局组件使用
+
+> `主要是在: layout.vue | app.vue | router.js | main.js`  
+
+#### 栅格组件实现响应式布局
+
+> `主要是在: Home.vue` 
+
+
+
+
+
+
+
+
 
 
 

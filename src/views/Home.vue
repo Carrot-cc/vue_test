@@ -1,10 +1,37 @@
 <template>
-  <div>
-    <b>{{ food }}</b>
+  <div class="home">
+    <!-- <b>{{ food }}</b>
     <h1>456</h1>
     <button @click="handClick('back')">返回上一页</button>
     <button @click="handClick('push')">跳转到parent</button>
-    <button @click="getInfo">请求按钮</button>
+    <button @click="getInfo">请求按钮</button> -->
+
+    <!-- 栅格组件：  -->
+    <Row>
+      <i-col></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col span="12"></i-col>
+      <i-col span="12"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col span="8"></i-col>
+      <i-col span="8"></i-col>
+      <i-col span="8"></i-col>
+    </Row>
+    <Row :gutter="10">
+      <i-col span="4" offset="1"></i-col>
+      <i-col span="4"></i-col>
+      <i-col span="4"></i-col>
+    </Row>
+
+    <!-- 响应式栅格： -->
+    <Row :gutter="10" class="pink">
+      <i-col :md="6" :sm="12" :xs="24"></i-col>
+      <i-col :md="6" :sm="12" :xs="24"></i-col>
+      <i-col :md="6" :sm="12" :xs="24"></i-col>
+      <i-col :md="6" :sm="12" :xs="24"></i-col>
+    </Row>
   </div>
   
 </template>
@@ -59,3 +86,20 @@ export default {
   }
 }
 </script>
+
+<style lang="less">
+  .home{
+    .ivu-col{
+      height: 50px;
+      margin-top: 10px;
+      background-color: lightseagreen;
+      // 内容区背景色： 
+      background-clip: content-box;
+    }
+    .pink{
+      .ivu-col{
+        background-color: pink;
+      }
+    }
+  }
+</style>

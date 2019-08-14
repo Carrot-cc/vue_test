@@ -1,18 +1,19 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
+    <!-- 使用iview响应式布局layout取代了Home页， 注释， 其他页面放开 注释 -->
+    <!-- <div id="nav">
+      <router-link to="/">Home</router-link> | -->
       <!-- 三. 命名路由 name属性对象 v-bind可简写 -->
-      <router-link v-bind:to="{ name: 'about' }">About</router-link>
-    </div>
+      <!-- <router-link v-bind:to="{ name: 'about' }">About</router-link>
+    </div> -->
 
     <!-- 过渡效果 -->
-    <transition-group :name="routerTransirion">
+    <!-- <transition-group :name="routerTransirion"> -->
       <router-view key="default"/>
       <!-- 四. 命名视图: 同一个页面使用多个视图 -->
       <router-view key="email" name="email"/>
       <router-view key="tel" name="tel"/>
-    </transition-group>
+    <!-- </transition-group> -->
     
   </div>
 </template>
@@ -33,6 +34,13 @@ export default {
 </script>
 
 <style lang="less">
+html.body{
+  height: 100%;
+}
+body{
+  height: 2000px;
+  margin: 0;
+}
 /* 页面过渡 */
 .router-enter{
   opacity: 0;
@@ -56,8 +64,9 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  // text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  // margin-top: 60px;
+  height: 100%;
 }
 </style>
