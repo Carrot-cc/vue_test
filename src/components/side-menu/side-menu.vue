@@ -2,9 +2,9 @@
   <div class="side-menu-wrapper">
     <!-- logo -->
     <!-- 插槽 slot -->
-    <slot></slot>
+    <!-- <slot></slot> -->
     <!-- 展开时:  -->
-    <Menu width="auto" theme="dark">
+    <Menu v-show="!collapsed" width="auto" theme="dark" @on-select="handleSelect">
       <!-- <menu-item></menu-item> -->
       <!-- 做递归组件: 深层遍历 v-for -->
       <template v-for="item in list">
@@ -23,17 +23,38 @@
         </menu-item>
       </template>
     </Menu>
-    <div></div>
+
+    <!-- 收缩后的:  -->
+    <div v-show="collapsed" class="drop-wrapper">
+      <template v-for="item in list">
+        <re-dropdown 
+          @on-select="handleSelect"
+          v-if="item.children"
+          :showTitle="false"
+          icon-color="#fff"
+          :key="`drop_${item.name}`"
+          :parent="item"
+        >
+        </re-dropdown> 
+        <Tooltip v-else transfor :content="item.title" placement="right" :key="`drop_${item.name}`">          
+          <span @click="handleClick(item.name)" class="drop-menu-span">
+            <Icon :type="item.icon" color="#fff" :size="20"></Icon>
+          </span>
+        </Tooltip>
+      </template>
+    </div>
   </div>
 </template>
 
 <script>
 import ReSubmenu from './re-submenu.vue'
+import ReDropdown from './re-dropdown.vue'
 
 export default {
   name: 'SideMenu',
   components: {
-    ReSubmenu
+    ReSubmenu,
+    ReDropdown
   },
   props: {
     collapsed: {
@@ -46,6 +67,15 @@ export default {
       default: () => []
     }
   },
+  methods: {
+    handleSelect (name) {
+      console.log(name)
+      
+    },
+    handleClick (name) {
+       console.log(name)
+    }
+  },
   created () {
     console.log(this.list)
   }
@@ -55,5 +85,18 @@ export default {
 <style lang="less">
   .side-menu-wrapper{
     width: 100%;
+    // .ivu-tooltip 自带的行内块
+    .ivu-tooltip, .drop-menu-span{
+      display: block;
+      width: 100%;
+      text-align: center;
+      /* color: #fff; */
+      padding: 5px 0;
+    }
+    .drop-wrapper > .ivu-dropdown{
+      display: block;
+      margin: 0 auto;
+      padding: 5px;
+    }
   }
 </style>
